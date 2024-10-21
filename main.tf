@@ -1,7 +1,14 @@
-provider "aws" {
-  region = "ap-southeast-2" 
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.72.1"
+    }
+  }
 }
-
+provider "aws" {
+  region = "us-east-1" 
+}
 resource "aws_instance" "example" {
   ami           = "ami-0f71013b2c8bd2c29"
   instance_type = "t2.micro"
